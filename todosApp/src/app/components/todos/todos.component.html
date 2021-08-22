@@ -1,0 +1,29 @@
+<div class="container-todos">
+  <h1 class="todos text-capitalize">
+    todos
+  </h1> <hr>
+  <form (submit)="addtodo()" >
+    <input type="text"  name="todoInput" placeholder="Type Text" [(ngModel)]="todoInput" >
+    <br> <br>
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+
+  <table class="table" >
+    <thead class="thead-dark" >
+      <tr>
+        <th>ID</th>
+        <th>Text</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Todos, let i = index" >
+        <td >{{ i }}</td>
+        <td class="content"> {{ item.content }} </td>
+        <td>
+          <button class="button" (click)="deleteTodo(i)">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
